@@ -1,13 +1,15 @@
 import { Injectable } from '@nestjs/common';
+import { InjectRepository } from '@nestjs/typeorm';
+import { Product } from './product.entity';
+import { Repository } from 'typeorm';
 
 @Injectable()
 export class ProductService {
-    findAll() {
-        return [
-            { id: 1, name: 'Camiseta de algodón', price: 10000, stock:10 },
-            { id: 2, name: 'Suéter tipo polo', price: 20000, stock:11 },
-            { id: 3, name: 'Camisa elegantek', price: 15000, stock:16 },
-          
-        ];
+
+    constructor(@InjectRepository(Product)
+        private productRepository: Repository<Product>) {}
+
+    findAll(): Promise<Product[]> {
+        return this.productRepository.find();
     }
 }
