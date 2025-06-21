@@ -2,7 +2,7 @@ import { useParams, useNavigate } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 import Modal from 'react-modal'; // Adjust the path if Modal is in a different location
-import { Product } from '../../../../Backend/src/modules/product/product.entity';
+
 
 export default function Checkout() {
   const { id } = useParams();

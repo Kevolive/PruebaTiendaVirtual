@@ -1,36 +1,77 @@
-# Wompi Fullstack App
+# 🛒 Tienda Virtual - Prueba Fullstack
 
-## Requisitos
-- Node.js
-- PostgreSQL
+Este proyecto es una solución Fullstack construida con **NestJS + PostgreSQL + React**, en el contexto de una prueba técnica simulando una pasarela de pagos como Wompi.
 
-## Configuración
+---
 
-1. Clona el repo
-2. Ejecuta `npm install`
-3. Crea el archivo `.env` con las siguientes variables:
-   - `DB_HOST=localhost`
-   - `DB_PORT=5432`
-   - `DB_USERNAME=postgres`
-   - `DB_PASSWORD=tu_clave`
-   - `DB_NAME=wompi_db`
-4. Corre el proyecto con `npm run start:dev`
-5. Url de productos: http://localhost:3000/products
-Úsala en postman para probarla.
-Endpoints disponibles
-GET /products
-Lista todos los productos disponibles.
+##  Tecnologías usadas
 
-POST /transactions
-Crea una transacción (pedido) con estado PENDING. Retorna un enlace checkoutUrl simulado.
+- **Frontend**: React + React Router + Axios + Vite + TypeScript
+- **Backend**: NestJS + TypeORM + PostgreSQL
+- **Persistencia**: localStorage
+- **Diseño responsive** (en progreso)
+- **Simulación de pagos** con backend mock y validación simple
 
-GET /transactions
-Retorna todas las transacciones.
+---
 
-GET /transactions/:id
-Devuelve una transacción por su ID.
-6. Simulación de Wompi Checkout
-Debido a que Wompi no expone su endpoint de creación de checkout en sandbox sin una cuenta empresarial, se implementó una simulación del link de pago, generando un enlace ficticio como:
+## Cómo ejecutar localmente
 
-https://sandbox.wompi.co/checkout/?reference=pedido-1
+### Requisitos:
+- Node.js ≥ 18
+- PostgreSQL ≥ 13
+- NPM
 
+### Backend
+
+```bash
+cd Backend
+npm install
+# crea archivo .env
+cp .env.example .env
+# ajusta credenciales en .env
+npm run start:dev
+
+URL por defecto: http://localhost:3000
+
+cd Frontend
+cd frontend
+npm install
+npm run dev
+Abre en navegador: http://localhost:5173
+
+##Variales de entorno
+DB_HOST=localhost
+DB_PORT=5432
+DB_USERNAME=postgres
+DB_PASSWORD=tu_clave
+DB_NAME=wompi_db
+WOMPI_PUBLIC_KEY=pub_stagtest_xxx
+WOMPI_PRIVATE_KEY=prv_stagtest_xxx
+WOMPI_URL=https://sandbox.wompi.co/v1/transactions
+
+
+Funcionalidades implementadas
+ Ver productos disponibles con stock
+
+ Seleccionar producto y llenar formulario de compra
+
+ Resumen del pedido con tarifas extra (base + envío)
+
+ Validación de tarjeta con logo VISA/Mastercard
+
+ Formulario en modal tipo Backdrop
+
+ Pago simulado con respuesta mock
+
+ Persistencia de la transacción en localStorage
+
+ Visualización del resultado del pago (aprobado/rechazado)
+
+
+Notas: Esta prueba no usa la integración real de Wompi, sino una simulación controlada a nivel de backend.
+
+
+Autor
+Kevin Olivella
+Bello, Antioquia – Colombia
+kevinolivella@gmail.com
