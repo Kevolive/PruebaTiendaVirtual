@@ -18,7 +18,7 @@ export class TransactionService {
         private configService: ConfigService,
     ) { }
 
-    async create(dto: CreateTransactionDto): Promise<{ transaction: Transaction; checkoutUrl: string }> {
+    async create(dto: CreateTransactionDto): Promise<{ transaction: Transaction; checkoutUrl: string; status: string }> {
         const product = await this.productRepository.findOne({
             where: { id: dto.productId },
         });
@@ -43,6 +43,7 @@ export class TransactionService {
         return {
             transaction: savedTransaction,
             checkoutUrl,
+            status: savedTransaction.status,
         };
     }
 
