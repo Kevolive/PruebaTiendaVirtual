@@ -17,4 +17,20 @@
 4. Corre el proyecto con `npm run start:dev`
 5. Url de productos: http://localhost:3000/products
 Úsala en postman para probarla.
+Endpoints disponibles
+GET /products
+Lista todos los productos disponibles.
+
+POST /transactions
+Crea una transacción (pedido) con estado PENDING. Retorna un enlace checkoutUrl simulado.
+
+GET /transactions
+Retorna todas las transacciones.
+
+GET /transactions/:id
+Devuelve una transacción por su ID.
+6. Simulación de Wompi Checkout
+Debido a que Wompi no expone su endpoint de creación de checkout en sandbox sin una cuenta empresarial, se implementó una simulación del link de pago, generando un enlace ficticio como:
+
+https://sandbox.wompi.co/checkout/?reference=pedido-1
 
