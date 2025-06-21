@@ -12,12 +12,12 @@ export class TransactionController {
     @Post()
     create(
         @Body() dto: CreateTransactionDto,
-    ): Promise<{ transaction:Transaction; checkoutUrl: string}> {
+    ): Promise<{ transaction:Transaction; checkoutUrl: string, status: string}> {
         return this.transactionService.create(dto);
     }
 
     @Get()
-    finsAll(): Promise<Transaction[]> {
+    findAll(): Promise<Transaction[]> {
         return this.transactionService.findAll();
     }
     @Get(':id')

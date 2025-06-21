@@ -40,10 +40,13 @@ export class TransactionService {
 
         const checkoutUrl = await this.createCheckoutLink(savedTransaction);
 
+        const simularStatus: 'APPROVED' | 'DECLINED'=Math.random() > 0.3 ? 'APPROVED' : 'DECLINED'
+
+        const updateTransaction= await this.updateStatus(savedTransaction.id, simularStatus)
         return {
-            transaction: savedTransaction,
+            transaction: updateTransaction,
             checkoutUrl,
-            status: savedTransaction.status,
+            status: updateTransaction.status,
         };
     }
 
