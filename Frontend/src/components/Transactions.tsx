@@ -49,7 +49,7 @@ interface Transaction {
                             <td>{t.customerName}</td>
                             <td>{t.product.name}</td>
                             <td>${t.amount}</td>
-                            <td style={{color: t.status === 'APROVED' ? 'green': 'red'}}>
+                            <td style={{color: t.status === 'APPROVED' ? 'green': 'red'}}>
                                 {t.status}
                             </td>
                             <td>{new Date(t.createdAt).toLocaleDateString()}</td>

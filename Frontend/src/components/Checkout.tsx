@@ -20,6 +20,8 @@ export default function Checkout() {
     customerEmail: '',
     deliveryAddress: '',
     cardNumber: '',
+    codeCard:'',
+    expirationDate:''
   });
 
   const [isOpen, setIsOpen] = useState(false);
@@ -112,6 +114,9 @@ export default function Checkout() {
           <li><strong>Total: ${total}</strong></li>
         </ul>
       </div>
+      <div>
+        <h3>Por favor ingresa tus datos para continuar con la trasacción:</h3>
+      </div>
       <form onSubmit={handleSubmit}>
         <input
           type="text"
@@ -141,6 +146,20 @@ export default function Checkout() {
         value={form.cardNumber}
         onChange={handleChange}
          /><br />
+        <input 
+        type="number"
+        name="codeCard"
+        placeholder='CVC'
+        value={form.codeCard}
+        onChange={handleChange}
+         /><br />
+        <input 
+        type="date"
+        name="expirationDate"
+        placeholder='Fecha de vencimiento'
+        value={form.expirationDate}
+        onChange={handleChange}
+         /><br /><br />
 
          {getCardLogo() === 'visa' && (
           <img 
