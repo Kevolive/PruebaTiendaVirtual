@@ -70,6 +70,8 @@ Funcionalidades implementadas
 
 Notas: Esta prueba no usa la integración real de Wompi, sino una simulación controlada a nivel de backend.
 
+Url del deply en Vercel:https://prueba-tienda-virtual.vercel.app/
+
 
 Autor
 Kevin Olivella
