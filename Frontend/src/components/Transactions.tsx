@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
-import axios from 'axios'
+// import axios from 'axios'
+import { getProducts } from "../api";
 
 interface Transaction {
     id: number;
@@ -18,7 +19,7 @@ interface Transaction {
     const [transactions, setTransactions] = useState<Transaction[]> ([]);
 
     useEffect(() => {
-        axios.get<Transaction[]>('http://localhost:3000/transactions')
+        getProducts()
         .then((res) => {
             console.log("Transacciones recibidas:", res.data);
             
