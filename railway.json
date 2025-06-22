@@ -1,8 +1,7 @@
 {
   "build": {
-    "builder": "NIXPACKS",
-    "rootDirectory": "Backend",
-    "buildCommand": "npm install && npm run build",
-    "startCommand": "npm run start"
+    "builder": "DOCKER",
+    "dockerfilePath": "Backend/Dockerfile",
+    "rootDirectory": "."
   }
 }
