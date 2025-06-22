@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
-// import axios from 'axios'
-import { getProducts } from "../api";
+import axios from 'axios'
 
 interface Transaction {
     id: number;
@@ -19,7 +18,7 @@ interface Transaction {
     const [transactions, setTransactions] = useState<Transaction[]> ([]);
 
     useEffect(() => {
-        getProducts()
+        axios.get<Transaction[]>('https://backend-wompi.onrender.com/transactions')
         .then((res) => {
             console.log("Transacciones recibidas:", res.data);
             
