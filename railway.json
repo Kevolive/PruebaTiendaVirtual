@@ -1,8 +1,8 @@
 {
   "build": {
     "builder": "NIXPACKS",
+    "rootDirectory": "Backend",
     "buildCommand": "npm install && npm run build",
-    "startCommand": "npm run start:prod",
-    "rootDirectory": "Backend"
+    "startCommand": "npm run start"
   }
 }
