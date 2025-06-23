@@ -15,7 +15,7 @@ function App() {
     <div style={{ padding: '1rem'}}>
       <header className="bg-white shadow-md p-4 flex flex-col sm:flex-row items-center justify-between">
         <h1 className="text-3xl font-extrabold text-blue-600 flex items-center gap-2 text-center">
-          🛒 <span className="hidden sm:inline">Tienda Virtua</span>
+          🛒 <span className="hidden sm:inline">Tienda Virtual</span>
         </h1>
         <nav className="mt-2 sm:mt-0">
           <ul className="flex gap-4 text-gray-700 font-medium">
