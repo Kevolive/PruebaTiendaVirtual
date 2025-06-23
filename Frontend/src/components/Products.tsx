@@ -21,28 +21,7 @@ export default function Products() {
 
   return (
     <>
-      
-      <header className="bg-white shadow-md p-4 flex flex-col sm:flex-row items-center justify-between">
-        <h1 className="text-3xl font-extrabold text-blue-600 flex items-center gap-2">
-          🛒 <span className="hidden sm:inline">Tienda Virtual</span>
-        </h1>
-        <nav className="mt-2 sm:mt-0">
-          <ul className="flex gap-4 text-gray-700 font-medium">
-            <li>
-              <Link to="/" className="hover:text-blue-600 transition-colors duration-200 btn btn-primary">
-                Inicio
-              </Link>
-            </li>
-            <li>
-              <Link to="/transactions" className="hover:text-blue-600 transition-colors duration-200">
-                Historial de transacciones
-              </Link>
-            </li>
-          </ul>
-        </nav>
-      </header>
-
-     
+         
       <div className="max-w-7xl mx-auto px-6 py-10">
         <h2 className="text-3xl font-bold text-gray-800 mb-8 text-center">🛍 Productos Disponibles</h2>
 
