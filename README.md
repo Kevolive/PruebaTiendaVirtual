@@ -1,107 +1,166 @@
-# 🛒 Tienda Virtual - Prueba Fullstack
+# ------------------------------------------------------Tienda Virtual - Prueba Técnica Fullstack con Wompi -------------------------------------------------
 
-Este proyecto es una solución Fullstack construida con **NestJS + PostgreSQL + React**, en el contexto de una prueba técnica simulando una pasarela de pagos con Wompi.
+Este proyecto es una solución Fullstack construida con **NestJS + PostgreSQL + React**, que simula una tienda en línea con integración real a la pasarela de pagos **Wompi (modo Sandbox)**.
+
+Incluye backend funcional, pruebas unitarias, frontend con diseño responsive, documentación en Postman y despliegue en producción.
 
 ---
 
-## 🚀 Tecnologías usadas
+## ------------Tecnologías usadas
 
-- **Frontend**: React + React Router + Axios + Vite + TypeScript
+- **Frontend**: React + Vite + TypeScript + React Router + Axios
 - **Backend**: NestJS + TypeORM + PostgreSQL
-- **Base de datos**: PostgreSQL en Render
-- **Diseño responsive** (en progreso)
-- **Integración real con Wompi (Sandbox)**
+- **Base de datos**: PostgreSQL (Render)
+- **Testing**:
+  - Backend: Jest + Supertest
+  - Frontend: Vitest + Testing Library
+- **Pasarela de pagos**: Wompi (modo sandbox)
+- **Deployment**:
+  - Backend: Render
+  - Frontend: Vercel
+- **Documentación**: Postman
 
 ---
 
-## 🔧 Cómo ejecutar localmente
+## ---------------Funcionalidades implementadas
+
+✅ Ver productos disponibles con stock  
+✅ Crear productos desde backend  
+✅ Seleccionar producto y llenar formulario de compra  
+✅ Validación básica de tarjeta (Visa/Mastercard) con íconos  
+✅ Simulación de pago real con Wompi Sandbox  
+✅ Registro de transacciones en PostgreSQL  
+✅ Visualización de historial de transacciones  
+✅ Diseño responsive (mobile y desktop)  
+✅ Feedback visual en cada paso del flujo de compra  
+✅ Modal de confirmación con íconos de estado  
+✅ Backend y base de datos desplegados en Render  
+✅ Frontend desplegado en Vercel  
+
+---
+
+## 📦 Estructura del proyecto
+
+/Backend
+│ /src
+│ /product
+│ /transaction
+│ .env.example
+│ main.ts
+│ app.module.ts
+│ ...
+/Frontend
+│ /src
+│ /components
+│ /pages
+│ App.tsx
+│ main.tsx
+│ ...
+README.md
+
+yaml
+Copiar
+Editar
+
+---
+
+## ------------Cómo ejecutar localmente
 
 ### Requisitos:
 - Node.js ≥ 18
 - PostgreSQL ≥ 13
 - NPM
 
----
-
-Backend
+### -------------- Backend
 
 ```bash
 cd Backend
 npm install
-cp .env.example .env # crea archivo de variables
-# edita tus credenciales de conexión a PostgreSQL
+cp .env.example .env
+# Edita tus credenciales de conexión a PostgreSQL y claves Wompi
 npm run start:dev
-Por defecto se ejecuta en: http://localhost:3000
+Backend por defecto en: http://localhost:3000
 
-Frontend
+--------------- Frontend
 bash
 Copiar
 Editar
 cd Frontend
 npm install
 npm run dev
-Abre en navegador: http://localhost:5173
+Frontend por defecto en: http://localhost:5173
 
-------Variables de entorno necesarias----
-env
+---------------Ejecutar pruebas
+Backend
+bash
 Copiar
 Editar
-DB_HOST=tu_host_render.com
-DB_PORT=5432
-DB_USERNAME=postgres
-DB_PASSWORD=****
-DB_NAME=wompi_db
+npm run test        # Ejecuta pruebas unitarias
+npm run test:cov    # Genera cobertura
+Frontend
+bash
+Copiar
+Editar
+npm run test
+Cobertura actual (Backend):
+sql
+Copiar
+Editar
+File         | % Stmts | % Branch | % Funcs | % Lines
+-------------|---------|----------|---------|---------
+All files    |  21.39  |   0.57   |  17.64  |  22.9
+ 
 
-WOMPI_PUBLIC_KEY=pub_stagtest_xxx
-WOMPI_PRIVATE_KEY=prv_stagtest_xxx
-WOMPI_URL=https://sandbox.wompi.co/v1/transactions
+                                                    ------Documentación de la API (Postman)---------
 
-                                    ----- Funcionalidades implementadas -----
-Ver productos disponibles con stock
-
-Crear productos desde backend
-
-Seleccionar producto y llenar formulario de compra
-
-Validación básica de tarjeta (Visa/Mastercard) con íconos
-
-Modal tipo backdrop para compra
-
-Simulación de pago con Wompi en entorno sandbox
-
-Registro de transacciones en PostgreSQL
-
-Visualización de historial de transacciones
-
-Backend y base de datos desplegados en Render
-
-Frontend desplegado en Vercel
-
----- URLs de despliegue ----
-Frontend (Vercel): https://prueba-tienda-virtual.vercel.app/
-
-Backend (Render): https://backend-wompi.onrender.com/
-
-
-###  Documentación de la API (Postman)
-
-📬 Documentación de la API (Postman)
-Puedes revisar, probar y explorar todos los endpoints del backend desde esta colección de Postman, incluyendo ejemplos de peticiones GET, POST y detalles sobre las rutas disponibles:
-
-🔗 Documentación Postman
 (https://web.postman.co/workspace/My-Workspace~cd984496-425e-4e1c-800d-35eb2278b02b/collection/39635729-d1a11389-42fc-47f8-98d5-5dc93efda327?action=share&creator=39635729&action_performed=google_login)
 
-🧪 Endpoints disponibles en la colección:
+Endpoints disponibles
 Método	Ruta	Descripción
-GET	/products	Obtener todos los productos disponibles.
-POST	/products	Crear un nuevo producto.
-GET	/transactions	Obtener el historial de transacciones.
-POST	/transactions	Crear una transacción simulada con Wompi.
+GET	/products	Obtener todos los productos disponibles
+POST	/products	Crear un nuevo producto
+GET	/transactions	Obtener historial de transacciones
+POST	/transactions	Crear una transacción simulada
 
-Todos los endpoints están conectados al backend desplegado en:
-https://backend-wompi.onrender.com
+🌐 URLs de despliegue
+🔗 Frontend (Vercel): https://prueba-tienda-virtual.vercel.app
+
+🔗 Backend (Render): https://backend-wompi.onrender.com
+
+                                            ---------Arquitectura del Backend----------
+
+El backend sigue una estructura modular inspirada en la Arquitectura Hexagonal (Ports and Adapters):
+
+Módulos por dominio: product, transaction
+
+Controladores como puertos primarios
+
+Servicios que encapsulan lógica de negocio
+
+DTOs y entidades como adaptadores
+
+Tests unitarios con Jest (*.spec.ts)
+
+Esta organización permite:
+
+Separación clara de responsabilidades
+
+Mayor mantenibilidad
+
+Escalabilidad y facilidad para testing
+
+                                            -----Mejoras UI/UX implementadas-----
+
+Cards con sombra y diseño limpio para productos
+
+Inputs con íconos y formularios estilizados
+
+Feedback visual con íconos ✅ / ❌ en resultados de pago
+
+Skeleton loaders y mensajes amigables
+
+Diseño responsivo para dispositivos móviles
 
 👨‍💻 Autor
 Kevin Olivella
 📍 Bello, Antioquia – Colombia
-📧 kevinolivella@gmail.com
