@@ -22,32 +22,46 @@ export default function Result() {
   }, [navigate]);
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen p-4 bg-gray-100 text-center">
-      <h2 className="text-2xl font-bold mb-4">🧾 Resultado del pago</h2>
+    <div className="flex flex-col items-center justify-center min-h-screen bg-gradient-to-br from-blue-50 to-blue-100 px-4 py-8 text-center">
+      <h2 className="text-3xl font-extrabold text-blue-700 mb-6">
+        🧾 Resultado del Pago
+      </h2>
 
-      {status === 'APPROVED' ? (
-        <div className="bg-green-100 text-green-800 p-4 rounded-md w-full max-w-md mb-4 shadow-md">
-          <h3 className="text-xl font-semibold">✅ ¡Pago aprobado!</h3>
-          <p className="mt-2">Gracias por tu compra.</p>
-        </div>
-      ) : (
-        <div className="bg-red-100 text-red-800 p-4 rounded-md w-full max-w-md mb-4 shadow-md">
-          <h3 className="text-xl font-semibold">❌ Pago rechazado o cancelado</h3>
-          <p className="mt-2">Intenta nuevamente o elige otro método.</p>
-        </div>
-      )}
+      <div className={`w-full max-w-md p-6 rounded-lg shadow-lg ${
+        status === 'APPROVED'
+          ? 'bg-green-50 text-green-800 border border-green-300'
+          : 'bg-red-50 text-red-800 border border-red-300'
+      }`}>
+        <h3 className="text-xl font-bold mb-2">
+          {status === 'APPROVED' ? '✅ ¡Pago aprobado!' : '❌ Pago rechazado o cancelado'}
+        </h3>
+        <p className="text-sm">
+          {status === 'APPROVED'
+            ? 'Gracias por tu compra. Tu transacción fue exitosa.'
+            : 'Hubo un problema con tu pago. Puedes intentarlo nuevamente.'}
+        </p>
+      </div>
 
       {transaction && (
-        <div className="bg-white p-4 rounded-md shadow-md w-full max-w-md text-left">
-          <h4 className="font-semibold text-gray-700 mb-2">📦 Resumen de tu compra:</h4>
-          <p><span className="font-semibold">👤 Cliente:</span> {transaction.customerName}</p>
-          <p><span className="font-semibold">🆔 ID del producto:</span> {transaction.productId}</p>
-          <p><span className="font-semibold">💵 Total pagado:</span> ${transaction.amount}</p>
-          <p><span className="font-semibold">📌 Estado:</span> {transaction.status}</p>
+        <div className="w-full max-w-md bg-white mt-6 p-6 rounded-lg shadow-md text-left">
+          <h4 className="font-semibold text-gray-700 mb-3">📦 Resumen de tu compra:</h4>
+          <ul className="space-y-1 text-gray-700 text-sm">
+            <li><span className="font-semibold">👤 Cliente:</span> {transaction.customerName}</li>
+            <li><span className="font-semibold">🆔 ID Producto:</span> {transaction.productId}</li>
+            <li><span className="font-semibold">💵 Total pagado:</span> ${transaction.amount}</li>
+            <li>
+              <span className="font-semibold">📌 Estado:</span>{' '}
+              <span className={transaction.status === 'APPROVED' ? 'text-green-600 font-bold' : 'text-red-600 font-bold'}>
+                {transaction.status}
+              </span>
+            </li>
+          </ul>
         </div>
       )}
 
-      <p className="text-sm text-gray-500 mt-6">Serás redirigido al inicio en 5 segundos...</p>
+      <p className="text-xs text-gray-500 mt-8">
+        Serás redirigido al inicio en 5 segundos...
+      </p>
     </div>
   );
 }

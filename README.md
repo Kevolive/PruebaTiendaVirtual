@@ -123,7 +123,8 @@ GET	/transactions	Obtener historial de transacciones
 POST	/transactions	Crear una transacción simulada
 
 🌐 URLs de despliegue
-🔗 Frontend (Vercel): https://prueba-tienda-virtual.vercel.app
+🔗 Frontend (Vercel): https://prueba-tienda-virtual.vercel.app/
+    Frontend (Netlify): https://tiendavirtualprueba.netlify.app/
 
 🔗 Backend (Render): https://backend-wompi.onrender.com
 
