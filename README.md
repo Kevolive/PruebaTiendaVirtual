@@ -166,7 +166,9 @@ Diseño responsivo para dispositivos móviles
 
 Capturas de pantalla
 
+
  Página de Productos
+### Página de Productos
 ![Productos](./screenshots/product.jpg)
 
 ---
