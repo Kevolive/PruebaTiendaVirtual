@@ -50,6 +50,15 @@ Esta aplicación simula una tienda en línea donde el usuario puede:
 
 ---
 
+### --------------------Vista desde un móvil
+![Vista Móvil](./screenshots/vista-movil.jpg)
+
+---
+### --------------------Despliegue en Netlify
+![Despliegue](./screenshots/despliegue-netlify.jpg)
+
+---
+
 ##------------------------Pruebas realizadas
 
 - Se probaron transacciones con datos válidos e inválidos.
