@@ -28,11 +28,11 @@ export default function Transactions() {
 
   const totalAprobadas = transactions
     .filter(t => t.status === 'APPROVED')
-    .reduce((acc, curr) => acc + curr.amount, 0);
+    .reduce((acc, curr) => acc + Number(curr.amount), 0);
 
   const totalRechazadas = transactions
     .filter(t => t.status !== 'APPROVED')
-    .reduce((acc, curr) => acc + curr.amount, 0);
+    .reduce((acc, curr) => acc + Number(curr.amount), 0);
 
   return (
     <main className="max-w-6xl mx-auto p-4 sm:p-6">
@@ -76,7 +76,7 @@ export default function Transactions() {
             </table>
           </div>
 
-          {/* Totales al final */}
+         
           <div className="mt-6 flex flex-col sm:flex-row sm:justify-center sm:gap-10 text-center text-lg font-semibold text-gray-800">
             <div className="bg-green-100 text-green-700 px-4 py-2 rounded shadow">
               ✅ Total Aprobadas: ${totalAprobadas.toLocaleString()}
