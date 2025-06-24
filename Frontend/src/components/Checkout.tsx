@@ -82,22 +82,7 @@ export default function Checkout() {
       className="max-w-2xl mx-auto my-16 bg-white rounded-xl shadow-2xl p-8 outline-none"
       overlayClassName="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center"
     >
-      {/* Título y navegación */}
-      <header className="mb-6">
-        <div className="flex flex-col sm:flex-row justify-between items-center">
-          <h1 className="text-3xl font-extrabold text-blue-600 flex items-center gap-2">
-            🛒 <span>Tienda Virtual</span>
-          </h1>
-          <nav className="mt-4 sm:mt-0 flex gap-4">
-            <Link to="/" className="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition">
-              Inicio
-            </Link>
-            <Link to="/transactions" className="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition">
-              Historial
-            </Link>
-          </nav>
-        </div>
-      </header>
+      
 
       {/* Resumen de compra */}
       <div className="mb-6 bg-gray-100 rounded-lg p-4">
