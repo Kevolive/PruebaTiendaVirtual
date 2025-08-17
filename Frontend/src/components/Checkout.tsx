@@ -42,7 +42,7 @@ export default function Checkout() {
     e.preventDefault();
     try {
       const response = await axios.post<{ checkoutUrl: string; status: string }>(
-        'https://backend-wompi.onrender.com/transactions',
+        'https://wompi-backend-y2qy.onrender.com/transactions',
         {
           ...form,
           amount: total,
