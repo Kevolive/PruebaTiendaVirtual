@@ -193,7 +193,7 @@ Abre tu navegador en http://localhost:5173.
 
 Frontend: https://tutienda.netlify.app (Netlify/Vercel)
 
-Backend: https://backend-wompi.onrender.com (Render)
+Backend: https://wompi-backend-y2qy.onrender.com (Render)
 
 👤 Autor
 Kevin Olivella
