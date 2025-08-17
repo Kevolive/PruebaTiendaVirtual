@@ -2,7 +2,7 @@ import axios from 'axios';
 
 
 const API = axios.create({
-    baseURL: 'https://backend-wompi.onrender.com',
+    baseURL: 'https://wompi-backend-y2qy.onrender.com',
 });
 
 export const getProducts = async () => {
