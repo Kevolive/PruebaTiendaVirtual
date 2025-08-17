@@ -18,7 +18,7 @@ export default function Transactions() {
 
   useEffect(() => {
     axios
-      .get<Transaction[]>('https://backend-wompi.onrender.com/transactions')
+      .get<Transaction[]>('https://wompi-backend-y2qy.onrender.com/transactions')
       .then((res) => {
         console.log("Transacciones recibidas:", res.data);
         setTransactions(res.data);
