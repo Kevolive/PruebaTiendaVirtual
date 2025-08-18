@@ -5,6 +5,7 @@ import Products from './components/Products';
 import Result from './components/Results';
 import Checkout from './components/Checkout';
 import Transactions from './components/Transactions';
+import Footer from './components/footer/Footer';
 
 
 
@@ -49,6 +50,8 @@ function App() {
         <Route path="/transactions" element={<Transactions />}></Route>
 
       </Routes>
+      <Footer />
+      
 
     </div>
   )
