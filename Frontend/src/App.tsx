@@ -50,8 +50,9 @@ function App() {
         <Route path="/transactions" element={<Transactions />}></Route>
 
       </Routes>
+      <hr />
       <Footer />
-      
+
 
     </div>
   )
