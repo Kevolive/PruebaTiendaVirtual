@@ -5,24 +5,26 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { ProductModule } from './modules/product/product.module';
 import { TransactionModule } from './modules/transaction/transaction.module';
+import { PagosModule } from './modules/pagos/pagos.module';
 
 
 
 @Module({
   imports: [ConfigModule.forRoot({
-      isGlobal: true,
-    }),TypeOrmModule.forRoot({
-      type: 'postgres',
-      url: process.env.DATABASE_URL,
-      entities: [__dirname + '/**/*.entity{.ts,.js}'],
-      synchronize: true, 
-      ssl: {
-        rejectUnauthorized: false,
-      }
-    }),
+    isGlobal: true,
+  }), TypeOrmModule.forRoot({
+    type: 'postgres',
+    url: process.env.DATABASE_URL,
+    entities: [__dirname + '/**/*.entity{.ts,.js}'],
+    synchronize: true,
+    ssl: {
+      rejectUnauthorized: false,
+    }
+  }),
     ProductModule,
-    TransactionModule],
+    TransactionModule,
+    PagosModule],
   controllers: [AppController],
   providers: [AppService],
 })
-export class AppModule {}
+export class AppModule { }

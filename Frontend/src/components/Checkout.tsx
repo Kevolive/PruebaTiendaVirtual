@@ -11,8 +11,15 @@ export default function Checkout() {
 
   const deliveryFee = 5000;
   const baseFee = 3000;
+
+  const subtotal = deliveryFee + baseFee;
+  const iva_valor = 0.19;
+  const iva = subtotal * iva_valor;
+  const totalIva = subtotal + iva;
+
+
   const productPrice = 12000;
-  const total = deliveryFee + baseFee + productPrice;
+  const total = deliveryFee + baseFee + productPrice + totalIva;
 
   const [form, setForm] = useState({
     customerName: '',
@@ -82,7 +89,7 @@ export default function Checkout() {
       className="max-w-2xl mx-auto my-16 bg-white rounded-xl shadow-2xl p-8 outline-none"
       overlayClassName="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center"
     >
-      
+
 
       {/* Resumen de compra */}
       <div className="mb-6 bg-gray-100 rounded-lg p-4">
@@ -91,6 +98,7 @@ export default function Checkout() {
           <li>📦 Producto: ${productPrice}</li>
           <li>🚚 Envío: ${deliveryFee}</li>
           <li>🔧 Base: ${baseFee}</li>
+          <li> Iva: ${iva_valor}</li>
           <li className="font-bold text-gray-900 mt-2 text-base">💰 Total: ${total}</li>
         </ul>
       </div>

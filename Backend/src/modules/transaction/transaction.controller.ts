@@ -7,12 +7,12 @@ import { UpdateTransactionStatusDto } from './update-transaction-status.dto';
 @Controller('transactions')
 export class TransactionController {
 
-    constructor(private readonly transactionService:TransactionService) {}
+    constructor(private readonly transactionService: TransactionService) { }
 
     @Post()
     create(
         @Body() dto: CreateTransactionDto,
-    ): Promise<{ transaction:Transaction; checkoutUrl: string, status: string}> {
+    ): Promise<{ transaction: Transaction; checkoutUrl: string, status: string }> {
         return this.transactionService.create(dto);
     }
 
@@ -25,11 +25,11 @@ export class TransactionController {
         return this.transactionService.findOne(id);
     }
     @Patch(':id/status')
-        updateStatus(
-            @Param('id') id: number,
-            @Body()dto: UpdateTransactionStatusDto,
-        ): Promise<Transaction> {
-            return this.transactionService.updateStatus(id, dto.status)
-        }
-    
+    updateStatus(
+        @Param('id') id: number,
+        @Body() dto: UpdateTransactionStatusDto,
+    ): Promise<Transaction> {
+        return this.transactionService.updateStatus(id, dto.status)
+    }
+
 }

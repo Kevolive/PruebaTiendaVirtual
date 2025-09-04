@@ -19,6 +19,13 @@ export class TransactionService {
     ) { }
 
     async create(dto: CreateTransactionDto): Promise<{ transaction: Transaction; checkoutUrl: string; status: string }> {
+        const iva_valor= 0.19;
+
+
+        const subtotal = dto.amount;
+        const iva = (subtotal * iva_valor);
+        const totalConIva = subtotal + iva;
+
         const product = await this.productRepository.findOne({
             where: { id: dto.productId },
         });
@@ -31,7 +38,7 @@ export class TransactionService {
             customerName: dto.customerName,
             customerEmail: dto.customerEmail,
             deliveryAddress: dto.deliveryAddress,
-            amount: dto.amount,
+            amount: totalConIva,
             status: 'PENDING',
             product,
         });
