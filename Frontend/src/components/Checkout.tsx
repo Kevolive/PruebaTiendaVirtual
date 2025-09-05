@@ -31,8 +31,8 @@ export default function Checkout() {
   const totalIva = subtotal + iva;
 
 
-  const productPrice = 12000;
-  const total = deliveryFee + baseFee + productPrice + totalIva;
+  
+  const total = deliveryFee + baseFee +  totalIva;
 
   const [form, setForm] = useState({
     customerName: '',
