@@ -108,7 +108,7 @@ export default function Checkout() {
       <div className="mb-6 bg-gray-100 rounded-lg p-4">
         <h2 className="text-lg font-semibold mb-2 text-gray-800">🧾 Resumen de pedido:</h2>
         <ul className="text-gray-700 text-sm space-y-1">
-          <li>📦 Producto: ${productPrice}</li>
+          <li>📦 Producto: ${product.price}</li>
           <li>🚚 Envío: ${deliveryFee}</li>
           <li>🔧 Base: ${baseFee}</li>
           <li> 🧮 Iva: ${iva_valor}</li>
