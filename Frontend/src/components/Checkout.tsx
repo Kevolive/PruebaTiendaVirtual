@@ -7,12 +7,25 @@ Modal.setAppElement('#root');
 
 export default function Checkout() {
   const { id } = useParams();
+  const [product, setProduct] = useState<{ id: number; name: string; price: number } | null>(null);
+
+  useEffect(() => {
+    const fetchProduct = async () => {
+      try {
+        const response = await axios.get(`https://wompi-backend-y2qy.onrender.com/products/${id}`);
+        setProduct(response.data);
+      } catch (error) {
+        console.error('Error fetching product:', error);
+      }
+    }; fetchProduct();
+  }, [id]);
   const navigate = useNavigate();
 
+  if(!product) return <p>Cargando el producto...</p>
   const deliveryFee = 5000;
   const baseFee = 3000;
 
-  const subtotal = deliveryFee + baseFee;
+  const subtotal = deliveryFee + baseFee + product.price;
   const iva_valor = 0.19;
   const iva = subtotal * iva_valor;
   const totalIva = subtotal + iva;
@@ -98,7 +111,7 @@ export default function Checkout() {
           <li>📦 Producto: ${productPrice}</li>
           <li>🚚 Envío: ${deliveryFee}</li>
           <li>🔧 Base: ${baseFee}</li>
-          <li> Iva: ${iva_valor}</li>
+          <li> 🧮 Iva: ${iva_valor}</li>
           <li className="font-bold text-gray-900 mt-2 text-base">💰 Total: ${total}</li>
         </ul>
       </div>
