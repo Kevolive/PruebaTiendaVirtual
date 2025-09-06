@@ -19,6 +19,7 @@ export default function Checkout() {
       }
     }; fetchProduct();
   }, [id]);
+  
   const navigate = useNavigate();
 
   if(!product) return <p>Cargando el producto...</p>
