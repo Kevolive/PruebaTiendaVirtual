@@ -26,13 +26,13 @@ export default function Checkout() {
   const baseFee = 3000;
 
   const subtotal = deliveryFee + baseFee + product.price;
-  const iva_valor = 0.19;
-  const iva = subtotal * iva_valor;
-  const totalIva = subtotal + iva;
+  const ivaRate = 0.19;  
+  const iva = subtotal * ivaRate;
+  const total = Math.round(iva + subtotal);
 
 
   
-  const total = deliveryFee + baseFee +  totalIva;
+  
 
   const [form, setForm] = useState({
     customerName: '',
@@ -111,7 +111,7 @@ export default function Checkout() {
           <li>📦 Producto: ${product.price}</li>
           <li>🚚 Envío: ${deliveryFee}</li>
           <li>🔧 Base: ${baseFee}</li>
-          <li> 🧮 Iva: ${iva_valor}</li>
+          <li> 🧮 Iva: ${iva}</li>
           <li className="font-bold text-gray-900 mt-2 text-base">💰 Total: ${total}</li>
         </ul>
       </div>
