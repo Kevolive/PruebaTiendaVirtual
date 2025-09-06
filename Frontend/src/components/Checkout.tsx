@@ -49,10 +49,10 @@ export default function Checkout() {
 
   const deliveryFee = 5000;
   const baseFee = 3000;
-  const subtotal = deliveryFee + baseFee + product.price;
+  const subtotal = deliveryFee + baseFee + Number(product.price);
   const ivaRate = 0.19;
-  const iva = subtotal * ivaRate;
-  const total = Math.round(iva + subtotal);
+  const iva = Math.round(subtotal * ivaRate);
+  const total = iva + subtotal;
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setForm({ ...form, [e.target.name]: e.target.value });
@@ -109,8 +109,8 @@ export default function Checkout() {
           <li>📦 Producto: ${product.price}</li>
           <li>🚚 Envío: ${deliveryFee}</li>
           <li>🔧 Base: ${baseFee}</li>
-          <li>🧮 Iva: ${iva}</li>
-          <li className="font-bold text-gray-900 mt-2 text-base">💰 Total: ${total}</li>
+          <li>🧮 Iva: ${iva.toLocaleString('es-CO')}</li>
+          <li className="font-bold text-gray-900 mt-2 text-base">💰 Total: ${total.toLocaleString('es-CO')}</li>
         </ul>
       </div>
 
