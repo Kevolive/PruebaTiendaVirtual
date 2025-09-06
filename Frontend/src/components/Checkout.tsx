@@ -19,13 +19,16 @@ export default function Checkout() {
       }
     }; fetchProduct();
   }, [id]);
-  
+
   const navigate = useNavigate();
 
-  if(!product) return <p>Cargando el producto...</p>
+  if(!product) {
+    return <p>Cargando el producto...</p>
+  
+}
+
   const deliveryFee = 5000;
   const baseFee = 3000;
-
   const subtotal = deliveryFee + baseFee + product.price;
   const ivaRate = 0.19;  
   const iva = subtotal * ivaRate;
